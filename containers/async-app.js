@@ -1,8 +1,15 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { compose } from 'redux';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+
 import { selectSubreddit, fetchPostsIfNeeded, invalidateSubreddit } from '../actions/actions'
 import SearchField from '../components/search-field'
 import PostsList from '../components/posts-list'
+import SelectedPost from '../components/selected-post'
+import OpenDropzone from '../components/open-dropzone'
+import ShareDropzone from '../components/share-dropzone'
 
 class AsyncApp extends Component {
   constructor(props) {
@@ -79,20 +86,12 @@ class AsyncApp extends Component {
               }
               {selectedPost.title &&
                 <div className="row">
-                  <div className="col s12 m5">
-                    <div className="card-panel" style={{cursor: 'move'}}>
-                      {selectedPost.title}
-                    </div>
+                  <div className="col s12 m8">
+                    <SelectedPost post={selectedPost}/>
                   </div>
-                  <div className="col s12 m5">
-                    <div className="card-panel">
-                      Open
-                    </div>
-                  </div>
-                  <div className="col s12 m5">
-                    <div className="card-panel">
-                      Share
-                    </div>
+                  <div className="col s12 m4 drop-zone">
+                    <OpenDropzone post={selectedPost}/>
+                    <ShareDropzone post={selectedPost}/>
                   </div>
                 </div>
               }
@@ -139,4 +138,7 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(AsyncApp);
+export default compose(
+  DragDropContext(HTML5Backend),
+  connect(mapStateToProps)
+)(AsyncApp)

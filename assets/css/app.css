@@ -79,7 +79,7 @@ main .container .row .update-container {
   overflow: hidden;
 }
 
-.list-post .item-post ul li {
+.list-post .item-post ul li, .card-action ul li {
   float: left;
   width: 33%;
   font-size: 10px;
@@ -108,4 +108,23 @@ main .container .row .update-container {
 
 .ico.ico-ups{
   background-position-y: 32px;
+}
+
+// .row .col.m5.drop-zone {
+//   position: absolute;
+//   top: 60px;
+//   right: 1px;
+//   z-index: 1;
+// }
+
+.drop-panel{
+  border-radius: 25px;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 1px;
+  width: 300px;
+}
+
+.drop-panel img {
+  height: 90px;
 }

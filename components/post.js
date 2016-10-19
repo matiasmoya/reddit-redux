@@ -11,6 +11,7 @@ class Post extends Component {
   selectThisPost() {
     let post = this.props.post;
     this.props.dispatch(selectPost(post));
+    window.scrollTo(0, 0);
   }
 
   render() {
