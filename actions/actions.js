@@ -5,6 +5,14 @@ export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const SELECT_SUBREDDIT = 'SELECT_SUBREDDIT';
 export const INVALIDATE_SUBREDDIT = 'INVALIDATE_SUBREDDIT';
 export const ADD_ERROR = 'ADD_ERROR';
+export const SELECT_POST = 'SELECT_POST';
+
+export function selectPost(post) {
+  return {
+    type: SELECT_POST,
+    post
+  }
+}
 
 export function selectSubreddit(subreddit) {
   return {

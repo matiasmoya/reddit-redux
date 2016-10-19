@@ -1,8 +1,15 @@
 import { combineReducers } from 'redux'
 import {
   SELECT_SUBREDDIT, INVALIDATE_SUBREDDIT,
-  REQUEST_POSTS, RECEIVE_POSTS, ADD_ERROR
+  REQUEST_POSTS, RECEIVE_POSTS, ADD_ERROR, SELECT_POST
 } from '../actions/actions'
+
+function selectedPost(state = {}, action) {
+  if (action.type === SELECT_POST) {
+    return action.post;
+  }
+  return state;
+}
 
 function selectedSubreddit(state = 'funny', action) {
   switch (action.type) {
@@ -67,6 +74,7 @@ function errors(state = false, action) {
 const rootReducer = combineReducers({
   postsBySubreddit,
   selectedSubreddit,
+  selectedPost,
   errors
 });
 

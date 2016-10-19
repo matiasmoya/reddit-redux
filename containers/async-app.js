@@ -37,7 +37,7 @@ class AsyncApp extends Component {
   }
 
   render() {
-    const { selectedSubreddit, posts, isFetching, lastUpdated, errors } = this.props;
+    const { selectedSubreddit, posts, isFetching, lastUpdated, errors, selectedPost } = this.props;
     return (
       <div>
         <header>
@@ -77,6 +77,25 @@ class AsyncApp extends Component {
               {!isFetching && posts.length === 0 &&
                 <h2>Empty.</h2>
               }
+              {selectedPost.title &&
+                <div className="row">
+                  <div className="col s12 m5">
+                    <div className="card-panel" style={{cursor: 'move'}}>
+                      {selectedPost.title}
+                    </div>
+                  </div>
+                  <div className="col s12 m5">
+                    <div className="card-panel">
+                      Open
+                    </div>
+                  </div>
+                  <div className="col s12 m5">
+                    <div className="card-panel">
+                      Share
+                    </div>
+                  </div>
+                </div>
+              }
               {posts.length > 0 &&
                 <div className="col s12" style={{ opacity: isFetching ? 0.5 : 1 }}>
                   <PostsList posts={posts} />
@@ -95,11 +114,12 @@ AsyncApp.propTypes = {
   posts: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired,
   lastUpdated: PropTypes.number,
+  selectedPost: PropTypes.object,
   dispatch: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
-  const { selectedSubreddit, postsBySubreddit, errors } = state;
+  const { selectedSubreddit, postsBySubreddit, errors, selectedPost} = state;
   const {
     isFetching,
     lastUpdated,
@@ -114,6 +134,7 @@ function mapStateToProps(state) {
     posts,
     isFetching,
     lastUpdated,
+    selectedPost,
     errors
   };
 }

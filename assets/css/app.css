@@ -50,6 +50,7 @@ main .container .row .update-container {
   display: flex;
   border-bottom: 1px solid #e0e0e0;
   background-color: #f4f7fa;
+  cursor: pointer;
 }
 
 .list-post .item-post .item-post-image{

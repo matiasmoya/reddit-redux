@@ -6,7 +6,7 @@ export default class PostsList extends Component {
     return (
       <ul className="collection list-post">
         {this.props.posts.map((post, i) =>
-          <Post post={post} index={i} />
+          <Post post={post} key={i} />
         )}
       </ul>
     );
