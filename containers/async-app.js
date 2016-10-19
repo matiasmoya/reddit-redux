@@ -54,31 +54,37 @@ class AsyncApp extends Component {
             There was an error in your request
           </span>
         }
-        <p>
-          {lastUpdated &&
-            <span>
-              Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
-              {' '}
-            </span>
-          }
-          {!isFetching &&
-            <a href="#"
-              onClick={this.handleRefreshClick}>
-              Refresh
-            </a>
-          }
-        </p>
-        {isFetching && posts.length === 0 &&
-          <h2>Loading...</h2>
-        }
-        {!isFetching && posts.length === 0 &&
-          <h2>Empty.</h2>
-        }
-        {posts.length > 0 &&
-          <div style={{ opacity: isFetching ? 0.5 : 1 }}>
-            <PostsList posts={posts} />
+        <main>
+          <div className="container">
+            <div className="row">
+              <div className="col s12 update-container">
+                {lastUpdated &&
+                  <span>
+                    Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
+                    {' '}
+                  </span>
+                }
+                {!isFetching &&
+                  <a href="#"
+                    onClick={this.handleRefreshClick}>
+                    Refresh
+                  </a>
+                }
+              </div>
+              {isFetching && posts.length === 0 &&
+                <h2>Loading...</h2>
+              }
+              {!isFetching && posts.length === 0 &&
+                <h2>Empty.</h2>
+              }
+              {posts.length > 0 &&
+                <div className="col s12" style={{ opacity: isFetching ? 0.5 : 1 }}>
+                  <PostsList posts={posts} />
+                </div>
+              }
+            </div>
           </div>
-        }
+        </main>
       </div>
     );
   }

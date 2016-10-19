@@ -35,6 +35,12 @@ nav {
   font-size: inherit;
 }
 
+main .container .row .update-container {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
 .list-post{
   background-color: #f4f7fa;
   border: none;
@@ -67,9 +73,8 @@ nav {
 
 .list-post .item-post ul {
   list-style-type: none;
-  width: 60%;
   margin: 0;
-  padding: 0;
+  padding: 10px 0;
   overflow: hidden;
 }
 
@@ -77,4 +82,29 @@ nav {
   float: left;
   width: 33%;
   font-size: 10px;
+}
+.item-post-footer li span {
+  font-size: 12px;
+  font-weight: bold;
+  padding-left: 3px;
+  line-height: 23px;
+  vertical-align: bottom;
+}
+.ico {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url(../images/icon-sprite.png);  
+}
+
+.ico.ico-comments{
+  background-position-y: 0px;
+}
+
+.ico.ico-downs{
+  background-position-y: 16px;  
+}
+
+.ico.ico-ups{
+  background-position-y: 32px;
 }
