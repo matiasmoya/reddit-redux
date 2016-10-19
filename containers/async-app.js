@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { selectSubreddit, fetchPostsIfNeeded, invalidateSubreddit } from '../actions/actions'
-import Picker from '../components/Picker'
-import Posts from '../components/Posts'
+import SearchField from '../components/search-field'
+import PostsList from '../components/posts-list'
 
 class AsyncApp extends Component {
   constructor(props) {
@@ -40,8 +40,15 @@ class AsyncApp extends Component {
     const { selectedSubreddit, posts, isFetching, lastUpdated, errors } = this.props;
     return (
       <div>
-        <Picker value={selectedSubreddit}
-          onChange={this.handleChange} />
+        <header>
+          <nav>
+            <div className="nav-wrapper container">
+              <a href="#">Reedit</a>
+              <SearchField value={selectedSubreddit}
+                onChange={this.handleChange} />
+            </div>
+          </nav>
+        </header>
         {!!errors && 
           <span>
             There was an error in your request
@@ -69,7 +76,7 @@ class AsyncApp extends Component {
         }
         {posts.length > 0 &&
           <div style={{ opacity: isFetching ? 0.5 : 1 }}>
-            <Posts posts={posts} />
+            <PostsList posts={posts} />
           </div>
         }
       </div>

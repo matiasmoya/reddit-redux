@@ -1,3 +1,80 @@
-body{
-  font-family: sans-serif;
+body {
+  font-family: 'Exo', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #f4f7fa;
+}
+
+main {
+  flex: 1 0 auto;
+}
+nav {
+  background-color: #777796;
+}
+
+.nav-wrapper input {
+  height: 30px;
+  width: 180px;
+  background: white;
+  float: right;
+  margin-top: 15px;
+  border-radius: 25px;
+  color: black;
+  padding-left: 25px;
+}
+
+.nav-wrapper a {
+  font-size: 30px;
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+.list-post{
+  background-color: #f4f7fa;
+  border: none;
+}
+
+.list-post .item-post{
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #f4f7fa;
+}
+
+.list-post .item-post .item-post-image{
+  width: 10%;
+}
+
+.list-post .item-post .item-post-image > img{
+  position: initial;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.list-post .item-post .item-post-description{
+  width: 90%;
+}
+.list-post .item-post .item-post-description .title{
+  color: #28bcfe;
+}
+
+
+.list-post .item-post ul {
+  list-style-type: none;
+  width: 60%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.list-post .item-post ul li {
+  float: left;
+  width: 33%;
+  font-size: 10px;
 }
